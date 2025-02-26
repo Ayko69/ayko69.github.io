@@ -143,30 +143,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Language switching
-    const langSwitch = document.getElementById('langSwitch');
-    const langSwitchMobile = document.getElementById('langSwitchMobile');
-    const html = document.documentElement;
-    let currentLang = 'ar';
-
-    function switchLanguage() {
-        currentLang = currentLang === 'ar' ? 'en' : 'ar';
-        html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-        html.setAttribute('lang', currentLang);
+    // Language switching functionality
+    function switchLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         
-        const newText = currentLang === 'ar' ? 'English' : 'عربي';
-        langSwitch.textContent = newText;
-        if (langSwitchMobile) langSwitchMobile.textContent = newText;
-
+        // Update all elements with data-ar and data-en attributes
         document.querySelectorAll('[data-ar][data-en]').forEach(element => {
-            element.textContent = element.getAttribute(`data-${currentLang}`);
+            const targetText = lang === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+            
+            // If element has a lang-text child, update that instead
+            const langTextElement = element.querySelector('.lang-text');
+            if (langTextElement) {
+                langTextElement.textContent = targetText;
+            } else {
+                element.textContent = targetText;
+            }
+        });
+
+        // Update language switch buttons
+        const switchText = lang === 'ar' ? 'English' : 'العربية';
+        document.querySelectorAll('#langSwitch, #langSwitchMobile').forEach(button => {
+            button.textContent = switchText;
+        });
+
+        // Update button icons direction
+        document.querySelectorAll('.btn-primary svg, .btn-outline-dark svg').forEach(icon => {
+            icon.style.transform = lang === 'ar' ? 'scaleX(-1)' : 'none';
         });
     }
 
-    // Initialize
-    langSwitch.addEventListener('click', switchLanguage);
-    if (langSwitchMobile) langSwitchMobile.addEventListener('click', switchLanguage);
-    initializeSlider();
+    // Event listeners for language switching
+    document.querySelectorAll('#langSwitch, #langSwitchMobile').forEach(button => {
+        button.addEventListener('click', function() {
+            const newLang = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+            switchLanguage(newLang);
+        });
+    });
 
     // Static data for projects
     const projects = [
@@ -247,12 +260,12 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsContainer.innerHTML = projects.map(project => `
             <div class="project-card group">
                 <div class="relative overflow-hidden rounded-xl">
-                    <img src="${project.image}" alt="${project.title[currentLang]}" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img src="${project.image}" alt="${project.title.ar}" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:opacity-0"></div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3">${project.title[currentLang]}</h3>
-                    <p class="text-gray-600">${project.description[currentLang]}</p>
+                    <h3 class="text-2xl font-bold mb-3">${project.title.ar}</h3>
+                    <p class="text-gray-600">${project.description.ar}</p>
                 </div>
             </div>
         `).join('');
@@ -266,13 +279,13 @@ document.addEventListener('DOMContentLoaded', function() {
         newsContainer.innerHTML = news.map(item => `
             <div class="news-card group">
                 <div class="relative overflow-hidden rounded-xl">
-                    <img src="${item.image}" alt="${item.title[currentLang]}" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img src="${item.image}" alt="${item.title.ar}" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:opacity-0"></div>
                 </div>
                 <div class="p-6">
-                    <div class="text-green-600 mb-2">${item.date[currentLang]}</div>
-                    <h3 class="text-xl font-bold mb-3">${item.title[currentLang]}</h3>
-                    <p class="text-gray-600">${item.description[currentLang]}</p>
+                    <div class="text-green-600 mb-2">${item.date.ar}</div>
+                    <h3 class="text-xl font-bold mb-3">${item.title.ar}</h3>
+                    <p class="text-gray-600">${item.description.ar}</p>
                 </div>
             </div>
         `).join('');
@@ -287,9 +300,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const successMessage = currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح' : 'Your message has been sent successfully';
+            const successMessage = document.documentElement.lang === 'ar' ? 'تم إرسال رسالتك بنجاح' : 'Your message has been sent successfully';
             alert(successMessage);
             contactForm.reset();
         });
     }
+
+    // Initialize slider
+    initializeSlider();
 });
