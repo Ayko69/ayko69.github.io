@@ -1,9 +1,343 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <title>Hello World</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة فزان للغذاء والتنمية الزراعية | Fezzan Food and Agricultural Development Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <h1>Hello World</h1>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="flex items-center">
+                        <img src="Fezzan.png" alt="Fezzan Logo" class="h-16 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center">
+                    <div class="desktop-nav">
+                        <a href="#home" class="nav-link active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                        <a href="#about" class="nav-link" data-ar="من نحن" data-en="About Us">من نحن</a>
+                        <a href="#projects" class="nav-link" data-ar="مشاريعنا" data-en="Our Projects">مشاريعنا</a>
+                        <a href="#news" class="nav-link" data-ar="الأخبار" data-en="News">الأخبار</a>
+                        <a href="#contact" class="nav-link" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+                    </div>
+                    <button id="langSwitch" class="bg-green-600 hover:bg-green-700">
+                        English
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-green-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="hidden">
+                <div class="flex flex-col">
+                    <a href="#home" class="nav-link-mobile active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                    <a href="#about" class="nav-link-mobile" data-ar="من نحن" data-en="About Us">من نحن</a>
+                    <a href="#projects" class="nav-link-mobile" data-ar="مشاريعنا" data-en="Our Projects">مشاريعنا</a>
+                    <a href="#news" class="nav-link-mobile" data-ar="الأخبار" data-en="News">الأخبار</a>
+                    <a href="#contact" class="nav-link-mobile" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+                    <button id="langSwitchMobile">
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navigation -->
+    <div class="h-20"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen bg-gradient-to-br from-green-50 to-white overflow-hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Text Content -->
+                <div class="order-2 md:order-1 text-right rtl:text-right ltr:text-left relative z-10">
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-green-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-green-50 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                    
+                    <!-- Agricultural icons -->
+                    <div class="flex justify-end gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🌾</span>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🌱</span>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🚜</span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600" data-ar="مؤسسة فزان للغذاء والتنمية الزراعية" data-en="Fezzan Food and Agricultural Development Foundation">
+                        مؤسسة فزان للغذاء والتنمية الزراعية
+                    </h1>
+
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg mb-8">
+                        <p class="text-xl leading-relaxed text-gray-700" data-ar="نحن مؤسسة رائدة في مجال التنمية الزراعية والأمن الغذائي، نعمل على تطوير وتنمية القطاع الزراعي في ليبيا من خلال مشاريع مستدامة ومبتكرة. نسعى لتحقيق الاكتفاء الذاتي وتعزيز الأمن الغذائي في مجتمعاتنا." 
+                           data-en="We are a leading institution in agricultural development and food security, working to develop and grow the agricultural sector in Libya through sustainable and innovative projects. We strive to achieve self-sufficiency and enhance food security in our communities.">
+                            نحن مؤسسة رائدة في مجال التنمية الزراعية والأمن الغذائي، نعمل على تطوير وتنمية القطاع الزراعي في ليبيا من خلال مشاريع مستدامة ومبتكرة. نسعى لتحقيق الاكتفاء الذاتي وتعزيز الأمن الغذائي في مجتمعاتنا.
+                        </p>
+                    </div>
+
+                    <!-- Key Features -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="text-green-600 text-xl mb-2">🎯</div>
+                            <h3 class="font-bold mb-1" data-ar="مشاريع مستدامة" data-en="Sustainable Projects">مشاريع مستدامة</h3>
+                            <p class="text-sm text-gray-600" data-ar="نطور مشاريع تحافظ على البيئة" data-en="We develop environmentally conscious projects">نطور مشاريع تحافظ على البيئة</p>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="text-green-600 text-xl mb-2">💪</div>
+                            <h3 class="font-bold mb-1" data-ar="تمكين المزارعين" data-en="Farmer Empowerment">تمكين المزارعين</h3>
+                            <p class="text-sm text-gray-600" data-ar="ندعم المزارعين بالتدريب والموارد" data-en="Supporting farmers with training and resources">ندعم المزارعين بالتدريب والموارد</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 justify-start rtl:flex-row-reverse">
+                        <a href="#projects" class="btn-primary" data-ar="مشاريعنا" data-en="Our Projects">
+                            مشاريعنا
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 rtl:ml-2 rtl:mr-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn-outline-dark" data-ar="تواصل معنا" data-en="Contact Us">
+                            تواصل معنا
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 rtl:ml-2 rtl:mr-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Slider -->
+                <div class="order-1 md:order-2">
+                    <div class="hero-slider relative rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="slider-container">
+                            <div class="slide">
+                                <img src="images/WhatsApp Image 2025-02-14 at 15.40.03_293a938c.jpg" alt="Fezzan 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="slide">
+                                <img src="images/WhatsApp Image 2025-02-14 at 15.40.03_ab900bf5.jpg" alt="Fezzan 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="slide">
+                                <img src="images/WhatsApp Image 2025-02-14 at 16.06.53_032e3463.jpg" alt="Fezzan 3" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="slider-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="impact-card">
+                    <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
+                    <div class="text-gray-600" data-ar="مشروع منجز" data-en="Completed Projects">مشروع منجز</div>
+                </div>
+                <div class="impact-card">
+                    <div class="text-4xl font-bold text-green-600 mb-2">1000+</div>
+                    <div class="text-gray-600" data-ar="مستفيد" data-en="Beneficiaries">مستفيد</div>
+                </div>
+                <div class="impact-card">
+                    <div class="text-4xl font-bold text-green-600 mb-2">20+</div>
+                    <div class="text-gray-600" data-ar="شراكة استراتيجية" data-en="Strategic Partnerships">شراكة استراتيجية</div>
+                </div>
+                <div class="impact-card">
+                    <div class="text-4xl font-bold text-green-600 mb-2">500+</div>
+                    <div class="text-gray-600" data-ar="هكتار مزروع" data-en="Hectares Cultivated">هكتار مزروع</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-green-50 to-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center mb-16 relative" data-ar="من نحن" data-en="Who We Are">
+                <span class="text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-400">من نحن</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="about-content space-y-6">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4" data-ar="رؤيتنا" data-en="Our Vision">رؤيتنا</h3>
+                        <p class="text-gray-600 leading-relaxed" data-ar="نسعى لتحقيق التنمية المستدامة في القطاع الزراعي من خلال تطبيق أحدث التقنيات وأفضل الممارسات العالمية" data-en="We strive to achieve sustainable development in the agricultural sector through the application of the latest technologies and best global practices">نسعى لتحقيق التنمية المستدامة في القطاع الزراعي من خلال تطبيق أحدث التقنيات وأفضل الممارسات العالمية</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4" data-ar="مهمتنا" data-en="Our Mission">مهمتنا</h3>
+                        <p class="text-gray-600 leading-relaxed" data-ar="تمكين المزارعين وتعزيز قدراتهم من خلال التدريب والدعم الفني والتقني، وتطوير سلاسل القيمة الزراعية لضمان الأمن الغذائي" data-en="Empowering farmers and enhancing their capabilities through training, technical support, and developing agricultural value chains to ensure food security">تمكين المزارعين وتعزيز قدراتهم من خلال التدريب والدعم الفني والتقني، وتطوير سلاسل القيمة الزراعية لضمان الأمن الغذائي</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4" data-ar="قيمنا" data-en="Our Values">قيمنا</h3>
+                        <ul class="text-gray-600 space-y-3 list-inside" data-ar-list data-en-list>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="الاستدامة: نلتزم بتطوير حلول زراعية مستدامة تحافظ على البيئة" data-en="Sustainability: We are committed to developing sustainable agricultural solutions that preserve the environment">الاستدامة: نلتزم بتطوير حلول زراعية مستدامة تحافظ على البيئة</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="الابتكار: نسعى دائماً لتطبيق أحدث التقنيات والابتكارات في القطاع الزراعي" data-en="Innovation: We constantly seek to apply the latest technologies and innovations in the agricultural sector">الابتكار: نسعى دائماً لتطبيق أحدث التقنيات والابتكارات في القطاع الزراعي</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="التعاون: نؤمن بأهمية العمل المشترك مع كافة الأطراف المعنية" data-en="Collaboration: We believe in the importance of working together with all stakeholders">التعاون: نؤمن بأهمية العمل المشترك مع كافة الأطراف المعنية</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="الإنسانية: نعمل من أجل تحسين ظروف الحياة للمجتمعات المحتاجة" data-en="Humanity: We work to improve living conditions for communities in need">الإنسانية: نعمل من أجل تحسين ظروف الحياة للمجتمعات المحتاجة</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="الشفافية: نعمل بكل شفافية في جميع أنشطتنا" data-en="Transparency: We operate with full transparency in all our activities">الشفافية: نعمل بكل شفافية في جميع أنشطتنا</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="المسؤولية: نتحمل المسؤولية عن جميع أعمالنا" data-en="Responsibility: We take responsibility for all our actions">المسؤولية: نتحمل المسؤولية عن جميع أعمالنا</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                <span data-ar="التعاون: نعمل مع الشركاء والمؤسسات الأخرى لتحقيق أهدافنا" data-en="Collaboration: We work with partners and other institutions to achieve our goals">التعاون: نعمل مع الشركاء والمؤسسات الأخرى لتحقيق أهدافنا</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-stats grid grid-cols-2 gap-6">
+                    <div class="stat-card bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-4xl font-bold text-green-600 mb-2">+500</div>
+                        <div class="text-gray-600" data-ar="مزارع مستفيد" data-en="Beneficiary Farmers">مزارع مستفيد</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-4xl font-bold text-green-600 mb-2">15</div>
+                        <div class="text-gray-600" data-ar="مشروع زراعي" data-en="Agricultural Projects">مشروع زراعي</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-4xl font-bold text-green-600 mb-2">20</div>
+                        <div class="text-gray-600" data-ar="شراكة استراتيجية" data-en="Strategic Partnerships">شراكة استراتيجية</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-4xl font-bold text-green-600 mb-2">85%</div>
+                        <div class="text-gray-600" data-ar="نسبة نجاح المشاريع" data-en="Project Success Rate">نسبة نجاح المشاريع</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gradient-to-br from-green-50 to-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center mb-16 relative" data-ar="مشاريعنا" data-en="Our Projects">
+                <span class="text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-400">مشاريعنا</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards will be dynamically loaded -->
+            </div>
+        </div>
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+            <div class="absolute bottom-20 right-10 w-64 h-64 bg-green-50 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-gradient-to-br from-green-50 to-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center mb-16 relative" data-ar="آخر الأخبار" data-en="Latest News">
+                <span class="text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-400">آخر الأخبار</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News cards will be dynamically loaded -->
+            </div>
+        </div>
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="absolute top-20 right-10 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+            <div class="absolute bottom-20 left-10 w-64 h-64 bg-green-50 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2" data-ar="الاسم" data-en="Name">الاسم</label>
+                            <input type="text" class="w-full p-3 border rounded" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                            <input type="email" class="w-full p-3 border rounded" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2" data-ar="الرسالة" data-en="Message">الرسالة</label>
+                            <textarea class="w-full p-3 border rounded h-32" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition duration-300" 
+                                data-ar="إرسال" data-en="Send">إرسال</button>
+                    </form>
+                </div>
+                <div>
+                    <div class="space-y-4">
+                        <p class="flex items-center">
+                            <span class="text-green-600 mr-2">📍</span>
+                            <span data-ar="العنوان: ليبيا" data-en="Address: Libya">العنوان: ليبيا</span>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="text-green-600 mr-2">📧</span>
+                            <span>info@fezzan.org</span>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="text-green-600 mr-2">📱</span>
+                            <span>+218 XX XXX XXXX</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p data-ar="جميع الحقوق محفوظة © 2025 مؤسسة فزان" data-en="All rights reserved © 2025 Fezzan Foundation">
+                    جميع الحقوق محفوظة © 2025 مؤسسة فزان
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
