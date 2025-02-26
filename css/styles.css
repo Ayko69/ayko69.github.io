@@ -394,6 +394,19 @@ html {
     background: linear-gradient(to right, #16a34a, #22c55e);
 }
 
+/* Mobile Navigation Menu */
+#mobileMenu {
+    @apply bg-white shadow-lg;
+}
+
+.nav-link-mobile {
+    @apply block w-full py-4 px-6 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-300 bg-white;
+}
+
+#langSwitchMobile {
+    @apply block w-full py-4 px-6 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-300 bg-white border-t border-gray-100;
+}
+
 /* Desktop navigation container */
 .desktop-nav {
     @apply hidden md:flex items-center;
