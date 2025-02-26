@@ -152,11 +152,23 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('[data-ar][data-en]').forEach(element => {
             const targetText = lang === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
             
-            // If element has a lang-text child, update that instead
-            const langTextElement = element.querySelector('.lang-text');
-            if (langTextElement) {
-                langTextElement.textContent = targetText;
+            // Special handling for elements with specific classes to maintain styling
+            if (element.classList.contains('section-title')) {
+                const titleSpan = element.querySelector('span');
+                if (titleSpan) {
+                    titleSpan.textContent = targetText;
+                }
+            } else if (element.querySelector('.lang-text')) {
+                // For buttons and other elements with lang-text
+                element.querySelector('.lang-text').textContent = targetText;
+            } else if (element.tagName === 'H1' && element.classList.contains('text-5xl')) {
+                // Preserve heading styles
+                element.textContent = targetText;
+            } else if (element.classList.contains('text-xl') || element.classList.contains('text-2xl')) {
+                // Preserve paragraph and subtitle styles
+                element.textContent = targetText;
             } else {
+                // For other elements, just update the text
                 element.textContent = targetText;
             }
         });
@@ -170,6 +182,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update button icons direction
         document.querySelectorAll('.btn-primary svg, .btn-outline-dark svg').forEach(icon => {
             icon.style.transform = lang === 'ar' ? 'scaleX(-1)' : 'none';
+        });
+
+        // Preserve styles for specific sections
+        preserveSectionStyles();
+    }
+
+    function preserveSectionStyles() {
+        // Preserve hero section styles
+        const heroTitle = document.querySelector('#home h1');
+        if (heroTitle) {
+            heroTitle.classList.add('text-5xl', 'md:text-6xl', 'font-extrabold', 'mb-6', 'text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-green-800', 'to-green-600');
+        }
+
+        // Preserve section titles
+        document.querySelectorAll('.section-title span').forEach(span => {
+            span.classList.add('text-6xl', 'font-extrabold', 'bg-clip-text', 'text-transparent', 'bg-gradient-to-r', 'from-green-600', 'to-green-400');
+        });
+
+        // Preserve about section styles
+        document.querySelectorAll('#about h3').forEach(heading => {
+            heading.classList.add('text-2xl', 'font-bold', 'text-green-700', 'mb-4');
+        });
+
+        // Preserve stat card styles
+        document.querySelectorAll('.stat-card div:first-child').forEach(stat => {
+            stat.classList.add('text-4xl', 'font-bold', 'text-green-600', 'mb-2');
         });
     }
 
