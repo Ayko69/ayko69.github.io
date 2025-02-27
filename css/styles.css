@@ -544,3 +544,14 @@ footer {
 .stat-label {
     @apply text-gray-600;
 }
+
+/* Force light mode */
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: light;
+    }
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+}
